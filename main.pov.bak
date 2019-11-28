@@ -1,0 +1,137 @@
+#include "colors.inc"
+#include "textures.inc"
+#include "skies.inc"
+#include "math.inc"
+#include "transforms.inc"    
+#include "woods.inc"
+#include "Lit.inc" 
+
+#declare Font="cyrvetic.ttf"
+
+sky_sphere {
+S_Cloud2
+rotate <90,0.51,1>
+}
+
+
+camera{
+    look_at <4, 4, 0>
+    location <-4,10, -50>
+    sky<0, 1,0 >
+    right <-800/600, 0, 0>
+}
+
+light_source{
+    <10, 20, 0>
+    rgb <1,1,1> 
+    fade_power 1
+    fade_distance 6
+}
+
+plane {
+  y,-1
+  texture {
+      pigment { color rgb  <0.4,0.75,0.2>}
+      normal { bumps 0.4 scale 0.2 }
+      finish { phong 0 }
+		}
+
+}
+
+
+#macro flecheNom (A, S, Coul, alph, rCyl, rCone, Text1, sca, rot, trans)
+#declare B=alph*A+alph*S;
+cylinder{
+    B, A, rCyl
+    pigment{
+        color Coul
+    }
+}
+
+cone{
+    B, rCone
+    S, 0.0
+    pigment{
+        color Coul
+    }
+}
+text{
+    ttf "timrom.ttf"
+    Text1
+    0
+    0
+    scale sca
+    rotate rot
+    translate trans
+    pigment{
+        color Coul
+    }
+}
+#end
+
+//#declare origine=<0, 0, 0>;
+//#declare I=<1, 0, 0>;
+//#declare J=<0, 1, 0>;
+//#declare K=<0, 0, 1>;
+//#declare alph=0.6;
+//#declare rCyl=0.05;
+//#declare rCone=0.15;                                  
+//#declare sca=0.3;
+
+//flecheNom(origine, I, rgb<1, 0, 0>, alph, rCyl, rCone, "X", sca, <0, 0, 0>, <0.5, 0.2, 0>)
+//flecheNom(origine, J, rgb<0, 1, 0>, alph, rCyl, rCone, "Y", sca, <0, 0, 0>, <0.2, 0.5, 0>)
+//flecheNom(origine, K, rgb<0, 0, 1>, alph, rCyl, rCone, "Z", sca, <0, -90, 0>, <0, 0.1, 0.5>)   
+                                                                                                                 
+
+#declare Hx = 5.00; // moitié largueur en x
+#declare Hy = 5.00; // longueur totale
+#declare Hz = 3.00; // longueur en z 
+#declare Roof_Angle = 0; // angle 
+#declare Wall_D = 0.2; // grosseur  
+
+#declare A1 =<-2,10,0>;// points blob arbres 
+#declare A2 =<-4,12,0>;
+#declare A3 =<-2,10,0>;
+#declare A4 =<-2,10,0>;
+#declare A5 =<-2,14,3>;
+#declare A6 =<-2,16,1>;
+#declare A7 =<0,18,0>;
+#declare A8 =<2,10,2>;
+#declare A9 =<3,15,2>;
+
+#declare C1 =<0,0,0>; //Points du tronc d'arbre
+#declare C2 =<0,10,0>;
+#declare r =2 ; 
+
+#declare arbre =
+union {
+    cylinder{
+    C1 C2 r  
+    texture{
+    Dark_Wood
+    }
+  } 
+  blob{
+  threshold 1.15
+   sphere{A1,4,3}
+   sphere{A2,3,2}
+   sphere{A3,4,4}
+   sphere{A4,6,2}  
+   sphere{A5,4,4} 
+   sphere{A6,5,5}
+   sphere{A7,7,3}
+   sphere{A8,6,3}
+   sphere{A9,4,3}
+   pigment{color Green}
+ }
+} 
+
+object{
+    arbre
+    translate<-2,0,-15>
+    }
+
+lit(1) 
+
+          
+ 

@@ -1,6 +1,4 @@
-#ifndef(   Lit_Inc_Temp)
-#declare Lit_Inc_Temp = version;
-#version 3.6;
+#include "main.inc"
 
 #declare Font="cyrvetic.ttf"                                 
                                  
@@ -92,7 +90,4 @@ object{
     arbre 
     translate <-10,0,-10>
 }   
-#end
-
-#version   Lit_Inc_Temp;
 #end
