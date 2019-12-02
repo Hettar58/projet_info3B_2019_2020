@@ -87,11 +87,7 @@ object{
 object{ 
     couverture
     scale<s,s,s>
-}
-object{
-    arbre 
-    translate <-10,0,-10>
-}   
+} 
 #end
 
 #version   Lit_Inc_Temp;
