@@ -14,22 +14,22 @@
 
 #declare time=clock ;
 
-#if (time<0.5)
+#if (time<0.4)
 #declare anim = 1;
 
 #end 
-#if (time>=0.5 & time<0.7)
+#if (time>=0.4 & time<0.6)
 #declare anim = 2;
 
 #end
 
 
-#if (time>=0.7 & time<0.9)
+#if (time>=0.6 & time<0.8)
 #declare anim = 3;
 
 #end
 
-#if (time>=0.9 )
+#if (time>=0.8 )
 #declare anim = 4;
 
 #end
@@ -38,7 +38,7 @@
 #switch (anim)
 
     #case (1) 
-        #declare O1 = 8.5+cos(time*30)*-2+2;  
+        #declare O1 = 8.5+cos(time*28)*-2+2;  
         #declare O2 = 8.5+cos(time*28)*-1.9+1.9; 
         #declare O3 = 8.5+cos(time*25)*-1.7+1.7; 
         #declare O4 = 8.5+cos(time*22)*-1.3+1.3; 
@@ -86,34 +86,247 @@
         sphere 
         { 
         <0,0,0>
-        2
-        pigment{Brown}   
+        1
+        pigment{Brown}  
+        translate <14,25,-1> 
         scale <1,1.2,1> 
-        scale 0.8
-        translate <14,40,-3>
+        scale echelle
         
         
         
+        
+        }   
+        camera
+        {
+            look_at <10 ,40, 0>
+            location <-50 ,40, 0>
+            sky<0, 1,0 >
+            right <-800/600, 0, 0>
+        }
+        
+
+
+        
+    
+    #break 
+    #case (2) 
+        #declare O1 = 8.5+cos(time*28)*-2+2;  
+        #declare O2 = 8.5+cos(time*28)*-1.9+1.9; 
+        #declare O3 = 8.5+cos(time*25)*-1.7+1.7; 
+        #declare O4 = 8.5+cos(time*22)*-1.3+1.3; 
+        #declare O5 = 8.5+cos(time*17)*-1+1; 
+        object
+        {
+         natu      
+         
+         translate <-2,O5,-2> 
+         rotate -90*y   
+          scale echelle *1
+        }    
+        object
+        {
+         natu      
+         
+         translate <2,O2,0> 
+         rotate -90*y   
+          scale echelle *1
+        } 
+        object
+        {
+         natu      
+         
+         translate <0,O3,-5> 
+         rotate -90*y   
+          scale echelle *1
+        } 
+        object
+        {
+         natu      
+         
+         translate <3,O4,-3> 
+         rotate -90*y   
+          scale echelle *1
+        } 
+        object
+        {
+         natu      
+         
+         translate <-3.2,O1,-7> 
+         rotate -90*y   
+          scale echelle 
+        } 
+        sphere 
+        { 
+        <0,0,0>
+        1
+        pigment{Brown}    
+        translate <14,25-(time-0.4)*70,-1>
+        scale <1,1.2,1> 
+        scale echelle
+        }            
+        camera
+        {
+            look_at <10 ,40, 0>
+            location <-50 ,40, 0>
+            sky<0, 1,0 >
+            right <-800/600, 0, 0>
+        }
+        
+
+        
+    
+    #break  
+    #case (3) 
+        
+        #declare O2 = 8.5+cos(time*28)*-1.9+1.9; 
+        #declare O3 = 8.5+cos(time*25)*-1.7+1.7; 
+        #declare O4 = 8.5+cos(time*22)*-1.3+1.3; 
+        #declare O5 = 8.5+cos(time*17)*-1+1; 
+        object
+        {
+         natu      
+         
+         translate <-2,O5,-2> 
+         rotate -90*y   
+          scale echelle *1
+        }    
+        object
+        {
+         natu      
+         
+         translate <2,O2,0> 
+         rotate -90*y   
+          scale echelle *1
+        } 
+        object
+        {
+         natu      
+         
+         translate <0,O3,-5> 
+         rotate -90*y   
+          scale echelle *1
+        } 
+        object
+        {
+         natu      
+         
+         translate <3,O4,-3> 
+         rotate -90*y   
+          scale echelle *1
+        } 
+        object
+        {
+         natu      
+         
+         rotate -90*y
+         rotate ((time-0.6)*900)*x 
+       
+         translate <-3.2,12.5-(time-0.6)*52.5,-10>
+          
+         scale echelle  
+        } 
+        sphere 
+        { 
+        <0,0,0>
+        1
+        pigment{Brown}  
+         
+        translate <14,12.5-(time-0.6)*23,-1>
+         
+        scale <1,1.2,1> 
+        scale echelle
+        }
+         camera
+        {
+            look_at <10 ,40-(time-0.6)*200, 0>
+            location <-50 ,40, 0>
+            sky<0, 1,0 >
+            right <-800/600, 0, 0>
+        }
+
+        
+    
+    #break 
+    #case (4) 
+          
+        #declare O2 = 8.5+cos(time*28)*-1.9+1.9; 
+        #declare O3 = 8.5+cos(time*25)*-1.7+1.7; 
+        #declare O4 = 8.5+cos(time*22)*-1.3+1.3; 
+        #declare O5 = 8.5+cos(time*17)*-1+1; 
+        object
+        {
+         natu      
+         
+         translate <-2,O5,-2> 
+         rotate -90*y   
+          scale echelle *1
+        }    
+        object
+        {
+         natu      
+         
+         translate <2,O2,0> 
+         rotate -90*y   
+          scale echelle *1
+        } 
+        object
+        {
+         natu      
+         
+         translate <0,O3,-5> 
+         rotate -90*y   
+          scale echelle *1
+        } 
+        object
+        {
+         natu      
+         
+         translate <3,O4,-3> 
+         rotate -90*y   
+          scale echelle *1
+        } 
+        object
+        {
+         natu      
+         
+         
+         rotate -90*y
+         rotate 180*z   
+          scale echelle 
+          translate <14,5,-10> 
+        } 
+        sphere 
+        { 
+        <0,0,0>
+        1
+        pigment{Brown}  
+         
+        translate <14,8.5,-1>
+         
+        scale <1,1.2,1> 
+        scale echelle
+        }
+         camera
+        {
+            look_at <10 ,0, 0>
+            location <-50 ,40, 0>
+            sky<0, 1,0 >
+            right <-800/600, 0, 0>
         }
 
         
     
     #break
+    
+   
+
 
 
 
 
 #end 
-camera{
-    look_at <10 ,25, 0>
-    location <-30 ,25, -25>
-    sky<0, 1,0 >
-    right <-800/600, 0, 0>
-}
 
-
-
-
+ 
 
 
  
@@ -124,7 +337,12 @@ object
 }   
 
 
-
+object
+{
+ tree 
+ scale echelle*1.5
+ translate <7,0,-20>
+} 
 
 
 

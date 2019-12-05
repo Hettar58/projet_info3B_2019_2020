@@ -2,15 +2,8 @@
 #declare Arbre_Inc_Temp = version;
 #version 3.6;
        
-#macro arbre(pos, rot, sca)         
-#declare A1 =<0, 0, 6>;// points blob arbres 
-#declare A2 =<-4,12,0>;
-#declare A3 =<-2,10,0>;
-#declare A4 =<-2,10,0>;
-#declare A5 =<-2,14,3>;
-#declare A6 =<-2,16,1>;
-#declare A7 =<0,18,0>;
-#declare A8 =<2,10,2>;
+         
+
 
 
 #declare C1 =<0,0,0>; //Points du tronc d'arbre
@@ -49,6 +42,6 @@ union {
   } 
 }    
 
-}
+
 #version Arbre_Inc_Temp
 #end
