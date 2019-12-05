@@ -62,13 +62,10 @@ object{
 #declare I = <1, 17>;
 #declare J = <2, 17>;     
 
-#declare K = <1, 16, 0>; //Premier cylindre de la branche 
-#declare L = <6, 17, 0>;                                
+#declare K = <0, 16, 0>; //Premier cylindre de la branche 
+#declare L = <5, 20, 0>;       
+#declare M = <7, 22, 0>; //centre de la sphere                         
 
-#declare M = <6, 18, 0>; //2e cylindre de la branche    //20
-#declare N = <10, 19, 0>;                                //21
-
-#declare O = <12, 21, 0>;//3e cylindre et centre des feuilles
 
 
 lathe{              //pied 
@@ -90,18 +87,15 @@ cylinder{       //tronc
      pigment{ color White }
 }    
 
-blob{    
-    threshold 0.7
-    cylinder{ K, L, 1.0, 1 }
-    cylinder{M, N, 1.0, 1 }
-    pigment{color Red}
-    finish{phong 1}
+cylinder{
+    K L 0.6
+    pigment{color Brown}
 }
-
 sphere{
-    O, 3
+    M, 3
     pigment{ color Green}
 }
+#
 #end
 
 #version Arbre_Inc_Temp

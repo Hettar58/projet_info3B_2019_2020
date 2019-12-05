@@ -1,7 +1,9 @@
 #ifndef (Arbre_Inc_Temp)
 #declare Arbre_Inc_Temp = version;
-#version 3.6
-
+#version 3.6;
+       
+#macro arbre(pos, rot, sca)         
+/*
 #declare A1 =<-2,10,0>;// points blob arbres 
 #declare A2 =<-4,12,0>;
 #declare A3 =<-2,10,0>;
@@ -16,7 +18,7 @@
 #declare C2 =<0,10,0>;
 #declare r =2 ; 
 
-#declare arbre =
+#declare tree =
 union {
     cylinder{
         C1 C2 r  
@@ -39,7 +41,68 @@ union {
     normal { bumps 0.4 scale 0.2 }
     finish { phong 0 }
   } 
-} 
+}    
+
+object{
+    tree
+    translate pos
+    rotate rot
+    scale sca
+}  */
+#declare A = <3, 0>;     //base lathe
+#declare B = <2, 0>;     //base lathe
+#declare C = <1, 1>;     //base lathe
+#declare D = <1, 2>;     //base lathe
+
+#declare E = <0, 0, 0>;  //pt tronc (cylindre)
+#declare F = <0, 15, 0>;  //pt tronc           
+
+#declare G = <1, 15>;   //haut lathe
+#declare H = <1, 16>;
+#declare I = <1, 17>;
+#declare J = <2, 17>;     
+
+#declare K = <1, 16, 0>; //Premier cylindre de la branche 
+#declare L = <6, 17, 0>;                                
+
+#declare M = <6, 18, 0>; //2e cylindre de la branche    //20
+#declare N = <10, 19, 0>;                                //21
+
+#declare O = <12, 21, 0>;//3e cylindre et centre des feuilles
+
+
+lathe{              //pied 
+    bezier_spline  
+    4,
+    A B C D
+    pigment{ color White }
+}   
+
+lathe{              //desssus tronc
+    bezier_spline
+    4, 
+    G H I J 
+    pigment{ color White}
+}
+
+cylinder{       //tronc
+     E F 1.0
+     pigment{ color White }
+}    
+
+blob{    
+    threshold 0.7
+    cylinder{ K, L, 1.0, 1 }
+    cylinder{M, N, 1.0, 1 }
+    pigment{color Red}
+    finish{phong 1}
+}
+
+sphere{
+    O, 3
+    pigment{ color Green}
+}
+#end
 
 #version Arbre_Inc_Temp
 #end

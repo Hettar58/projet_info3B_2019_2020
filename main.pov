@@ -16,7 +16,7 @@ sky_sphere {
 
 camera{
     look_at <0 ,15, 0>
-    location <10 ,5, 25>
+    location <-25 ,15, -25>
     sky<0, 1,0 >
     right <-800/600, 0, 0>
 }
