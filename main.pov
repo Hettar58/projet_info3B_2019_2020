@@ -2,6 +2,7 @@
 #include "textures.inc"
 #include "skies.inc"
 #include "math.inc"
+#include "Personnage.inc"
 #include "transforms.inc"    
 #include "woods.inc"
 #include "Lit.inc"            
