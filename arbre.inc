@@ -3,7 +3,7 @@
 #version 3.6;
        
 #macro arbre(pos, rot, sca)         
-#declare A1 =<-2,10,0>;// points blob arbres 
+#declare A1 =<0, 0, 6>;// points blob arbres 
 #declare A2 =<-4,12,0>;
 #declare A3 =<-2,10,0>;
 #declare A4 =<-2,10,0>;
@@ -11,10 +11,10 @@
 #declare A6 =<-2,16,1>;
 #declare A7 =<0,18,0>;
 #declare A8 =<2,10,2>;
-#declare A9 =<3,15,2>;
+
 
 #declare C1 =<0,0,0>; //Points du tronc d'arbre
-#declare C2 =<0,10,0>;
+#declare C2 =<0,20,0>;
 #declare r =2 ; 
 
 #declare tree =
@@ -26,16 +26,23 @@ union {
         }
     } 
   blob{
-    threshold 1.15
-    sphere{A1,4,5}
-    sphere{A2,3,4}
-    sphere{A3,4,4}
-    sphere{A4,6,2}  
-    sphere{A5,4,4} 
-    sphere{A6,5,7}
-    sphere{A7,7,5}
-    sphere{A8,6,4}
-    sphere{A9,4,4}
+    threshold 0.5
+    sphere{<0, 20, 6>, 4, 1}
+    sphere{<4, 20, 4>, 4, 1}
+    sphere{<6, 20, 0>, 4, 1}
+    sphere{<4, 20, -4>, 4, 1}  
+    sphere{<0, 20, -6>, 4, 1} 
+    sphere{<-4, 20, -4>, 4, 1}
+    sphere{<-6, 20, 0>, 4, 1}
+    sphere{<-4, 20, 4>, 4, 1}
+    
+    sphere{<2, 24, 2>, 4, 1}
+    sphere{<2, 24, -2>, 4, 1}
+    sphere{<-2, 24, -2>, 4, 1}
+    sphere{<-2, 24, 2>, 4, 1}
+    
+    sphere{<0, 28, 0>, 4, 1}
+    
     pigment { color rgb  <0.4,0.75,0.2>}
     normal { bumps 0.4 scale 0.2 }
     finish { phong 0 }

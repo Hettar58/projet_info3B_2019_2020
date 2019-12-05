@@ -28,6 +28,7 @@ merge{
         }
      }
 }
+
 #declare oreiller =
 union{
     sphere{<1, 0, 5> 1.0 pigment{color White}}
