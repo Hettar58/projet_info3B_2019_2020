@@ -71,7 +71,7 @@ plane {
 #declare OO2=<2.6,2.2,0.75>; 
 // Les points des ailes
 
-#macro personnage()        
+        
 #declare aile = union 
 {   
     
@@ -158,163 +158,177 @@ plane {
 
 }
 
-#declare natu = 
-union{ 
-    merge{
- 
-    blob{
-    threshold 1.15
-    sphere{OO1, 0.2,2}
-    sphere{OO2, 0.2,2}
-    pigment{color Black}
+#declare natu= 
+union
+{ 
+    merge
+    {
+    
+        blob
+        {
+            threshold 1.15
+            sphere{OO1, 0.2,2}
+            sphere{OO2, 0.2,2}
+            pigment{color Black}
+        }
+        
+        blob
+        {
+            threshold 1.15
+            sphere{O1, 0.5,2}
+            sphere{O2, 0.5,2}
+            pigment{color White}
+        }
+        
+        blob
+        {
+            threshold 1.15
+            sphere{S1,1.5,3}
+            pigment{color Green}
+        }
+        
+        cone{ 
+            <2,2,0> 0.4
+            <2,2,2> 0 
+            pigment{ color Yellow}
+        }
+        
+        cylinder{ 
+            P1 P1S 0.05
+            pigment{ Red}
+        }
+        
+        cylinder{
+            P2 P2S 0.05
+            pigment{ Red}
+        }
+        
+        cylinder{ 
+            P1S P1S1 0.04
+            pigment{ Red}
+        }
+        
+        cylinder{ 
+            P1S P1S2 0.04
+            pigment{ Red}
+        }
+        
+        cylinder{ 
+            P1S P1S3 0.04
+            pigment{ Red}
+        } 
+        
+        cylinder{ 
+            P2S P2S1 0.04
+            pigment{ Red}
+        }
+        
+        cylinder{ 
+            P2S P2S2 0.04
+            pigment{ Red}
+        } 
+        
+        cylinder{  
+            P2S P2S3 0.04
+            pigment{ Red}
+        } 
+        
+        cone {
+            <1.2,0.8,0.5> 0.045
+            <1.1,0.8,0.7> 0
+            pigment{ color White}
+        }
+        
+        cone { 
+            <1.7,0.8,0.5> 0.045
+            <1.8,0.8,0.7> 0
+            pigment{ color White}
+        }
+        
+        cone { 
+            <1.5,0.8,-0.5> 0.045
+            <1.5,0.8,-0.7> 0
+            pigment{ color White}
+        } 
+    
+    }  
+    
+    
+    cone { 
+        <2.2,0.8,0.5> 0.045
+        <2.1,0.8,0.7> 0
+        pigment{ color White}
     }
     
-    blob{
-    threshold 1.15
-    sphere{O1, 0.5,2}
-    sphere{O2, 0.5,2}
-    pigment{color White}
-    }
-      
-    blob{
-    threshold 1.15
-    sphere{S1,1.5,3}
-    pigment{color Green}
+    cone { 
+        <2.7,0.8,0.5> 0.045
+        <2.8,0.8,0.7> 0
+        pigment{ color White }
     }
     
-cone{ 
-      <2,2,0> 0.4
-      <2,2,2> 0 
-pigment{ color Yellow}
+    cone {  
+        <2.5,0.8,-0.5> 0.045
+        <2.5,0.8,-0.7> 0
+        pigment{ color White }
+    }  
+    
+    object
+    { 
+        aile
+        scale <1,0.5,0.5> 
+        scale 0.6
+        rotate 90*x
+        rotate -80*y
+        translate <1,2,-0.2> 
     }
     
-cylinder{ 
-        P1 P1S 0.05
-        pigment{ Red}
-        }
-        
-cylinder{
-        P2 P2S 0.05
-        pigment{ Red}
-        }
-        
-cylinder{ 
-        P1S P1S1 0.04
-        pigment{ Red}
-         }
-         
-cylinder{ 
-        P1S P1S2 0.04
-        pigment{ Red}
-         }
-         
-cylinder{ 
-        P1S P1S3 0.04
-        pigment{ Red}
-        } 
-        
-cylinder{ 
-        P2S P2S1 0.04
-        pigment{ Red}
-        }
-        
-cylinder{ 
-        P2S P2S2 0.04
-        pigment{ Red}
-        } 
-        
-cylinder{  
-        P2S P2S3 0.04
-        pigment{ Red}
-        } 
-        
-cone {
-      <1.2,0.8,0.5> 0.045
-      <1.1,0.8,0.7> 0
-pigment{ color White}
-      }
-      
-cone { 
-      <1.7,0.8,0.5> 0.045
-      <1.8,0.8,0.7> 0
-pigment{ color White}
-      }
-      
-cone { <1.5,0.8,-0.5> 0.045
-       <1.5,0.8,-0.7> 0
-pigment{ color White}
-      } 
-      
-     }
-cone { <2.2,0.8,0.5> 0.045
-       <2.1,0.8,0.7> 0
-pigment{ color White}
-      }
-      
-cone { 
-      <2.7,0.8,0.5> 0.045
-      <2.8,0.8,0.7> 0
-       pigment{ color White }
-      }
-      
-cone {  
-      <2.5,0.8,-0.5> 0.045
-      <2.5,0.8,-0.7> 0
-       pigment{ color White }
-      }  
-      
-object{ 
-    aile
-    scale <1,0.5,0.5> 
-    scale 0.6
-    rotate 90*x
-    rotate -80*y
-    translate <1,2,-0.2> 
-        }
-
-object { 
-    aile
-    scale <1,0.5,0.5> 
-    scale 0.6 
-    rotate 90*x
-    rotate 250*y
-    translate <3.1,2,-0.2> 
-        }
-
-object { 
-    titeuf
-    translate <2.9,2.1,0>
-        } 
-        
-object {    
-    titeuf 
-    rotate 120*x
-    rotate 180*y
-    translate <3,2.5,-0.5>
-    scale 0.7
-        }
-         
-object { 
-    titeuf 
-    rotate 120*x
-    rotate 260*y
-    translate <3,2.5,-0.5>
-    scale 0.7
-        }
-        
-object { 
-    titeuf 
-    rotate 150*x
-    rotate 230*y
-    translate <3,2.5,-0.5>
-    scale 0.7
-        }
-
+    object 
+    { 
+        aile
+        scale <1,0.5,0.5> 
+        scale 0.6 
+        rotate 90*x
+        rotate 250*y
+        translate <3.1,2,-0.2> 
+    }
+    
+    object 
+    { 
+        titeuf
+        translate <2.9,2.1,0>
+    } 
+    
+    object
+    {    
+        titeuf 
+        rotate 120*x
+        rotate 180*y
+        translate <3,2.5,-0.5>
+        scale 0.7
+    }
+    
+    object 
+    { 
+        titeuf 
+        rotate 120*x
+        rotate 260*y
+        translate <3,2.5,-0.5>
+        scale 0.7
+    }
+    
+    object 
+    { 
+        titeuf 
+        rotate 150*x
+        rotate 230*y
+        translate <3,2.5,-0.5>
+        scale 0.7
+    }
+    
 }
 
-object{ natu } 
 
-#end
+
 #version Personnage_Inc_Temp;
 #end
   
