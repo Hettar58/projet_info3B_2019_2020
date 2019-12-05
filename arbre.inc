@@ -49,12 +49,6 @@ union {
   } 
 }    
 
-object{
-    tree
-    translate pos
-    rotate rot
-    scale sca
-}  
-#end
+}
 #version Arbre_Inc_Temp
 #end

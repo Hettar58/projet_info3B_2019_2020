@@ -5,7 +5,7 @@
 #declare Font="cyrvetic.ttf"                                 
                                  
                                  
-#macro getLit(pos, rot, sca)    
+ 
 
 #declare pied = 
 merge{
@@ -44,22 +44,28 @@ union{
 union{
     object{ oreiller translate<8, 5, 0>}
     
-    merge{
+    merge
+    {
         box{ <-1.1,3.5,-1.1> <5,4.7,5.1> pigment {rgb<0,0,1>}}    //couverture
         
-        merge{
+        merge
+        {
             box{ <-1,3.5,-1> <9,4.5,5> pigment {rgb<1,1,1>}}     //matelas
             
-            union{
+            union
+            {
                 object {pied}
                 
-                union{
+                union
+                {
                     object {pied translate< 0, 0, 4>}
                     
-                    union{
+                    union
+                    {
                         object {pied translate< 8, 0, 0>}
                         
-                        union{
+                        union
+                        {
                             object {pied translate< 8, 0, 4>}
                             
                             box{<-1,3,-1> <9,3.5,5> texture{DMFWood1}}  //sommier
@@ -71,14 +77,7 @@ union{
     }
 }
 
-#object{
-    lit
-    translate pos
-    rotate rot
-    scale sca
-}                   
 
-#end
 
 #version   Lit_Inc_Temp;
 #end

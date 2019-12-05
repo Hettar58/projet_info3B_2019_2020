@@ -8,17 +8,158 @@
 #include "arbre.inc" 
 #include "personnage.inc"
 #declare Font="cyrvetic.ttf"
+#declare echelle = 2 ; 
+
+//animation//////////////
+
+#declare time=clock ;
+
+#if (time<0.5)
+#declare anim = 1;
+
+#end 
+#if (time>=0.5 & time<0.7)
+#declare anim = 2;
+
+#end
+
+
+#if (time>=0.7 & time<0.9)
+#declare anim = 3;
+
+#end
+
+#if (time>=0.9 )
+#declare anim = 4;
+
+#end
+
+
+#switch (anim)
+
+    #case (1) 
+        #declare O1 = 8.5+cos(time*30)*-2+2;  
+        #declare O2 = 8.5+cos(time*28)*-1.9+1.9; 
+        #declare O3 = 8.5+cos(time*25)*-1.7+1.7; 
+        #declare O4 = 8.5+cos(time*22)*-1.3+1.3; 
+        #declare O5 = 8.5+cos(time*17)*-1+1; 
+        object
+        {
+         natu      
+         
+         translate <-2,O5,-2> 
+         rotate -90*y   
+          scale echelle *1
+        }    
+        object
+        {
+         natu      
+         
+         translate <2,O2,0> 
+         rotate -90*y   
+          scale echelle *1
+        } 
+        object
+        {
+         natu      
+         
+         translate <0,O3,-5> 
+         rotate -90*y   
+          scale echelle *1
+        } 
+        object
+        {
+         natu      
+         
+         translate <3,O4,-3> 
+         rotate -90*y   
+          scale echelle *1
+        } 
+        object
+        {
+         natu      
+         
+         translate <-3.2,O1,-7> 
+         rotate -90*y   
+          scale echelle 
+        } 
+        sphere 
+        { 
+        <0,0,0>
+        2
+        pigment{Brown}   
+        scale <1,1.2,1> 
+        scale 0.8
+        translate <14,40,-3>
+        
+        
+        
+        }
+
+        
+    
+    #break
 
 
 
+
+#end 
+camera{
+    look_at <10 ,25, 0>
+    location <-30 ,25, -25>
+    sky<0, 1,0 >
+    right <-800/600, 0, 0>
+}
+
+
+
+
+
+
+ 
 object
 {
- natu
+ lit 
+ scale echelle*2
 }   
-object
-{
- arbre
-}   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 sky_sphere {
@@ -26,15 +167,10 @@ sky_sphere {
 }
 
 
-camera{
-    look_at <0 ,15, 0>
-    location <-50 ,15, -25>
-    sky<0, 1,0 >
-    right <-800/600, 0, 0>
-}
+
 
 light_source {
-    <200,0,50>
+    <200,50,50>
    color rgb <0.8,0.7,0.8>
 }
 	
@@ -43,7 +179,7 @@ light_source
 	<40,30,70>
 	color  rgb <1,0.8,0.8>
 	spotlight
-	point_at <10,0,20>
+	point_at <0,0,0>
 	radius 40
 	falloff 60	
 }
@@ -73,7 +209,7 @@ fog {
 #declare P7=<450,-1,-300>;
 merge{
     plane {
-        y,-1
+        y,0
         texture {
           pigment { color rgb  <0.4,0.75,0.2>}
           normal { bumps 0.8 scale 0.2 }
