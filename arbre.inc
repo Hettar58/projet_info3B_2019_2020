@@ -1,6 +1,6 @@
 #ifndef (Arbre_Inc_Temp)
 #declare Arbre_Inc_Temp = version;
-#version 3.6
+#version 3.6;
        
 #macro arbre(pos, rot, sca)         
 /*
@@ -59,34 +59,49 @@ object{
 
 #declare G = <1, 15>;   //haut lathe
 #declare H = <1, 16>;
-#declare I = <2, 17>;
-#declare J = <3, 17>;     
+#declare I = <1, 17>;
+#declare J = <2, 17>;     
 
-#declare K = <
+#declare K = <1, 16, 0>; //Premier cylindre de la branche 
+#declare L = <6, 17, 0>;                                
+
+#declare M = <6, 18, 0>; //2e cylindre de la branche    //20
+#declare N = <10, 19, 0>;                                //21
+
+#declare O = <12, 21, 0>;//3e cylindre et centre des feuilles
 
 
-lathe{
+lathe{              //pied 
     bezier_spline  
     4,
     A B C D
     pigment{ color White }
 }   
 
-cylinder{
+lathe{              //desssus tronc
+    bezier_spline
+    4, 
+    G H I J 
+    pigment{ color White}
+}
+
+cylinder{       //tronc
      E F 1.0
      pigment{ color White }
 }    
-     
-     
-     
-/*lathe{
-    bezier_spline
-    4,
-    G H I J
-    pigment{color White}
-}       */
 
+blob{    
+    threshold 0.7
+    cylinder{ K, L, 1.0, 1 }
+    cylinder{M, N, 1.0, 1 }
+    pigment{color Red}
+    finish{phong 1}
+}
 
+sphere{
+    O, 3
+    pigment{ color Green}
+}
 #end
 
 #version Arbre_Inc_Temp

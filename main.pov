@@ -5,7 +5,7 @@
 #include "transforms.inc"    
 #include "woods.inc"
 #include "Lit.inc"            
-#include "Arbre.inc"
+#include "arbre.inc"
 #declare Font="cyrvetic.ttf"
 
 sky_sphere {
@@ -15,7 +15,7 @@ sky_sphere {
 
 camera{
     look_at <0 ,15, 0>
-    location <-25 ,15, -25>
+    location <10 ,5, 25>
     sky<0, 1,0 >
     right <-800/600, 0, 0>
 }
@@ -43,6 +43,11 @@ light_source
 	point_at <100,44,6>
 	radius 20
 	falloff 30	
+}
+
+fog {
+    distance 1000
+    color <1.0, 1.0, 1.0> // <red, green, blue>
 }
 
 //POINTS centres collines
