@@ -2,11 +2,11 @@
 #include "textures.inc"
 #include "skies.inc"
 #include "math.inc"
-#include "Personnage.inc"
 #include "transforms.inc"    
 #include "woods.inc"
 #include "Lit.inc"            
-#include "arbre.inc"
+#include "arbre.inc" 
+#include "personnage.inc"
 #declare Font="cyrvetic.ttf"
 
 sky_sphere {
@@ -145,5 +145,5 @@ text{
 
 arbre(<-2, 0, -15>, <0, 0, 0>, 1)
 
-//lit(1)  
+lit(1)  
 

@@ -68,34 +68,41 @@ object{
 
 
 
-lathe{              //pied 
-    bezier_spline  
-    4,
-    A B C D
-    pigment{ color White }
-}   
+ 
 
-lathe{              //desssus tronc
-    bezier_spline
-    4, 
-    G H I J 
-    pigment{ color White}
-}
 
-cylinder{       //tronc
-     E F 1.0
-     pigment{ color White }
-}    
-
-cylinder{
-    K L 0.6
-    pigment{color Brown}
+#declare branche = 
+union{
+    cylinder{
+        K L 0.6
+        pigment{color Brown}
+    }
+    sphere{
+        M, 3
+        pigment{ color Green}
+    }
 }
-sphere{
-    M, 3
-    pigment{ color Green}
+#declare tronc = 
+union{
+       lathe{              //pied 
+            bezier_spline  
+            4,
+            A B C D
+            pigment{ color White }
+        }   
+        
+        lathe{              //desssus tronc
+            bezier_spline
+            4, 
+            G H I J 
+            pigment{ color White}
+        }
+        
+        cylinder{       //tronc
+             E F 1.0
+             pigment{ color White }
+        }   
 }
-#
 #end
 
 #version Arbre_Inc_Temp

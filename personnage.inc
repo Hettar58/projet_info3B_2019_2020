@@ -1,4 +1,4 @@
-#ifndef (   Personnage_Inc_Temp)
+#ifndef (Personnage_Inc_Temp)
 #declare Personnage_Inc_Temp = version;
 #version 3.6;
 #declare Font="cyrvetic.ttf"
@@ -315,6 +315,6 @@ object {
 object{ natu } 
 
 #end
-#version   Personnage_Inc_Temp;
+#version Personnage_Inc_Temp;
 #end
   

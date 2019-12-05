@@ -1,10 +1,6 @@
-#include "colors.inc"
-#include "textures.inc"
-#include "skies.inc"
-#include "math.inc"
-#include "transforms.inc"    
-#include "woods.inc"
-#include "Lit.inc" 
+#ifndef (   Personnage_Inc_Temp)
+#declare Personnage_Inc_Temp = version;
+#version 3.6;
 #declare Font="cyrvetic.ttf"
 
 sky_sphere {
@@ -75,7 +71,7 @@ plane {
 #declare OO2=<2.6,2.2,0.75>; 
 // Les points des ailes
 
-        
+#macro personnage()        
 #declare aile = union 
 {   
     
@@ -258,13 +254,13 @@ pigment{ color White}
 cone { 
       <2.7,0.8,0.5> 0.045
       <2.8,0.8,0.7> 0
-       pigment{ color White}
+       pigment{ color White }
       }
       
 cone {  
       <2.5,0.8,-0.5> 0.045
       <2.5,0.8,-0.7> 0
-       pigment{ color White}
+       pigment{ color White }
       }  
       
 object{ 
@@ -317,4 +313,8 @@ object {
 }
 
 object{ natu } 
+
+#end
+#version   Personnage_Inc_Temp;
+#end
   
