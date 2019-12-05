@@ -5,118 +5,77 @@
 #declare Font="cyrvetic.ttf"                                 
                                  
                                  
-#macro lit(s)  
+#macro getLit(pos, rot, sca)    
+
 #declare pied = 
-union{  
-    merge{
-    
-        lathe {
-            bezier_spline
-            4, // nombre de points
-            <1,0> <1,0.5> <0.5,0.75> <0.2,1>
-            texture {
-                DMFWood4
-            }
-        } 
+merge{
 
-        lathe {
-            bezier_spline
-            4, // nombre de points
-            <0,0> <1,0> <0.2,1> <1,3>
-            texture {
-                DMFWood4
-            }
-         }
-    }
-}
-#declare oreiller = 
-union{
-    lathe
-    {
+    lathe {
         bezier_spline
-        4, //nombre de points
-        <1.5,0> <1.4,3> <1.4,6> <1.5,9>
-       pigment{color White}
-    }   
-    
-    lathe
-    {
-        bezier_spline
-        4, //nombre de points
-        <1.5,9> <1.5,9.5> <0.5,10> <0,10>
-       pigment{color White}
-    }   
-    
-    lathe
-    {
-        bezier_spline
-        4, //nombre de points
-        <1.5,0> <1.5,-0.5> <0.5,-1> <0,-1>
-       pigment{color White}
-    }
-}
+        4, // nombre de points
+        <1,0> <1,0.5> <0.5,0.75> <0.2,1>
+        texture {
+            DMFWood4
+        }
+    } 
 
-#declare sommier =
-union{
-  box{
-    <-1,3,-1> <9,3.5,5>
-    texture{DMFWood1}  
-  }
+    lathe {
+        bezier_spline
+        4, // nombre de points
+        <0,0> <1,0> <0.2,1> <1,3>
+        texture {
+            DMFWood4
+        }
+     }
 }
- 
-#declare matelat = 
+#declare oreiller =
 union{
-  box{
-    <-1,3.5,-1> <9,4.5,5> 
-    pigment {rgb<1,1,1>}
+    sphere{<1, 0, 5> 1.0 pigment{color White}}
+    
+    union{
+        sphere{<1, 0, 0> 1.0 pigment{color White}}
+        
+        cylinder{<1, 0, 0>, <1, 0, 5>, 1.0 pigment{color White}}
     }
 }  
 
-#declare couverture = 
+#declare lit =
 union{
-    box{
-        <-1.1,3.5,-1.1> <5,4.7,5.1>
-        pigment {rgb<0,0,1>}
+    object{ oreiller translate<8, 5, 0>}
+    
+    merge{
+        box{ <-1.1,3.5,-1.1> <5,4.7,5.1> pigment {rgb<0,0,1>}}    //couverture
+        
+        merge{
+            box{ <-1,3.5,-1> <9,4.5,5> pigment {rgb<1,1,1>}}     //matelas
+            
+            union{
+                object {pied}
+                
+                union{
+                    object {pied translate< 0, 0, 4>}
+                    
+                    union{
+                        object {pied translate< 8, 0, 0>}
+                        
+                        union{
+                            object {pied translate< 8, 0, 4>}
+                            
+                            box{<-1,3,-1> <9,3.5,5> texture{DMFWood1}}  //sommier
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
-object{
-    pied 
-    scale<s,s,s>
-}    
-
-object{
-    pied
-    translate <0,0,4> 
-    scale<s,s,s>
-}    
-
-object {
-    pied
-    translate <8,0,0>
-    scale<s,s,s>
-}         
-
-object{
-    pied 
-    translate <8,0,4>
-    scale<s,s,s>
-}      
-
-object{
-    sommier
-    scale<s,s,s>
-}     
-
-object{
-    matelat
-    scale<s,s,s>
-}    
-
-object{ 
-    couverture
-    scale<s,s,s>
-}     
+#object{
+    lit
+    translate pos
+    rotate rot
+    scale sca
+}                   
 
 #end
 

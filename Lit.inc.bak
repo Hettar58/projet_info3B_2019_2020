@@ -8,110 +8,102 @@
 #macro lit(s)  
 #declare pied = 
 union{  
-
     merge{
     
-    lathe {
-        bezier_spline
-        4, // nombre de points
-        <1,0> <1,0.5> <0.5,0.75> <0.2,1>
-        texture {
-        DMFWood4
+        lathe {
+            bezier_spline
+            4, // nombre de points
+            <1,0> <1,0.5> <0.5,0.75> <0.2,1>
+            texture {
+                DMFWood4
             }
-    } 
+        } 
 
-    lathe {
-        bezier_spline
-        4, // nombre de points
-        <0,0> <1,0> <0.2,1> <1,3>
-        texture {
-        DMFWood4
-           }
-     }
-}
-}
-#declare oreiller = 
-union{
-lathe
-    {
-        bezier_spline
-        4, //nombre de points
-        <1.5,0> <1.4,3> <1.4,6> <1.5,9>
-       pigment{color White}
-    }
-lathe
-    {
-        bezier_spline
-        4, //nombre de points
-        <1.5,9> <1.5,9.5> <0.5,10> <0,10>
-       pigment{color White}
-    }  
-lathe
-    {
-        bezier_spline
-        4, //nombre de points
-        <1.5,0> <1.5,-0.5> <0.5,-1> <0,-1>
-       pigment{color White}
+        lathe {
+            bezier_spline
+            4, // nombre de points
+            <0,0> <1,0> <0.2,1> <1,3>
+            texture {
+                DMFWood4
+            }
+         }
     }
 }
+#declare oreiller =
+blob{
+    threshold 0.5
+    cylinder{<1, 0, 0>, <1, 0, 5>, 1.0, 1}
+    sphere{<1, 0, 0>, 1.0, 1}
+    sphere{<1, 0, 5>, 1.0, 1}
+    pigment{ color White}
+}  
 
 #declare sommier =
 union{
-
   box{
-  <-1,3,-1> <9,3.5,5>
-  texture{DMFWood1}  
+    <-1,3,-1> <9,3.5,5>
+    texture{DMFWood1}  
   }
- }
+}
  
 #declare matelat = 
 union{
   box{
-  <-1,3.5,-1> <9,4.5,5> 
-  pigment {rgb<1,1,1>
-  }
-  }
- } 
+    <-1,3.5,-1> <9,4.5,5> 
+    pigment {rgb<1,1,1>}
+    }
+}  
+
 #declare couverture = 
 union{
     box{
-    <-1.1,3.5,-1.1> <5,4.7,5.1>
-    pigment {rgb<0,0,1>
+        <-1.1,3.5,-1.1> <5,4.7,5.1>
+        pigment {rgb<0,0,1>}
     }
-    }
-   }
+}
 
 object{
     pied 
     scale<s,s,s>
-}
+}    
+
 object{
     pied
     translate <0,0,4> 
     scale<s,s,s>
-}
+}    
+
 object {
     pied
     translate <8,0,0>
     scale<s,s,s>
-}
+}         
+
 object{
     pied 
     translate <8,0,4>
     scale<s,s,s>
-}
+}      
+
 object{
     sommier
     scale<s,s,s>
-}   
+}     
+
 object{
     matelat
     scale<s,s,s>
 }    
+
 object{ 
     couverture
     scale<s,s,s>
-}   
+}     
+object{
+    oreiller
+    translate <8, 4, 0>
+    scale<s, s, s>
+}
 #end
 
 #version   Lit_Inc_Temp;

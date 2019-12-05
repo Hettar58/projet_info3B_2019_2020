@@ -118,18 +118,18 @@ text{
 }
 #end
 
-//#declare origine=<0, 0, 0>;
-//#declare I=<1, 0, 0>;
-//#declare J=<0, 1, 0>;
-//#declare K=<0, 0, 1>;
-//#declare alph=0.6;
-//#declare rCyl=0.05;
-//#declare rCone=0.15;                                  
-//#declare sca=0.3;
+#declare origine=<0, 0, 0>;
+#declare I=<1, 0, 0>;
+#declare J=<0, 1, 0>;
+#declare K=<0, 0, 1>;
+#declare alph=0.6;
+#declare rCyl=0.05;
+#declare rCone=0.15;                                  
+#declare sca=0.3;
 
-//flecheNom(origine, I, rgb<1, 0, 0>, alph, rCyl, rCone, "X", sca, <0, 0, 0>, <0.5, 0.2, 0>)
-//flecheNom(origine, J, rgb<0, 1, 0>, alph, rCyl, rCone, "Y", sca, <0, 0, 0>, <0.2, 0.5, 0>)
-//flecheNom(origine, K, rgb<0, 0, 1>, alph, rCyl, rCone, "Z", sca, <0, -90, 0>, <0, 0.1, 0.5>)   
+flecheNom(origine, I, rgb<1, 0, 0>, alph, rCyl, rCone, "X", sca, <0, 0, 0>, <0.5, 0.2, 0>)
+flecheNom(origine, J, rgb<0, 1, 0>, alph, rCyl, rCone, "Y", sca, <0, 0, 0>, <0.2, 0.5, 0>)
+flecheNom(origine, K, rgb<0, 0, 1>, alph, rCyl, rCone, "Z", sca, <0, -90, 0>, <0, 0.1, 0.5>)   
                                                                                                                  
 
 #declare Hx = 5.00; // moiti� largueur en x
@@ -145,5 +145,5 @@ text{
 
 arbre(<-2, 0, -15>, <0, 0, 0>, 1)
 
-lit(1)  
+getLit(<0, 0, 0>, <0, 0, 0>, 1)  
 

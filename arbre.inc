@@ -3,7 +3,6 @@
 #version 3.6;
        
 #macro arbre(pos, rot, sca)         
-/*
 #declare A1 =<-2,10,0>;// points blob arbres 
 #declare A2 =<-4,12,0>;
 #declare A3 =<-2,10,0>;
@@ -48,62 +47,7 @@ object{
     translate pos
     rotate rot
     scale sca
-}  */
-#declare A = <3, 0>;     //base lathe
-#declare B = <2, 0>;     //base lathe
-#declare C = <1, 1>;     //base lathe
-#declare D = <1, 2>;     //base lathe
-
-#declare E = <0, 0, 0>;  //pt tronc (cylindre)
-#declare F = <0, 15, 0>;  //pt tronc           
-
-#declare G = <1, 15>;   //haut lathe
-#declare H = <1, 16>;
-#declare I = <1, 17>;
-#declare J = <2, 17>;     
-
-#declare K = <0, 16, 0>; //Premier cylindre de la branche 
-#declare L = <5, 20, 0>;       
-#declare M = <7, 22, 0>; //centre de la sphere                         
-
-
-
- 
-
-
-#declare branche = 
-union{
-    cylinder{
-        K L 0.6
-        pigment{color Brown}
-    }
-    sphere{
-        M, 3
-        pigment{ color Green}
-    }
-}
-#declare tronc = 
-union{
-       lathe{              //pied 
-            bezier_spline  
-            4,
-            A B C D
-            pigment{ color White }
-        }   
-        
-        lathe{              //desssus tronc
-            bezier_spline
-            4, 
-            G H I J 
-            pigment{ color White}
-        }
-        
-        cylinder{       //tronc
-             E F 1.0
-             pigment{ color White }
-        }   
-}
+}  
 #end
-
 #version Arbre_Inc_Temp
 #end
